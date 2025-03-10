@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>{% block title %}
+        About{% endblock title %}</title>
+</head>
+<body>
+    {% block content %}
+        
+    <h1>This is a About page for my website</h1>
+    <p><b>{{message}}</b></p>
+
+    {% endblock  %}
+</body>
+</html>
