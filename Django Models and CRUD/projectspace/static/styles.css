@@ -1,0 +1,19 @@
+*{
+    box-sizing: border-box;
+    padding: None;
+    margin: None;
+}
+.n{
+    font-weight: bolder;
+    background-color: black; 
+    color: whitesmoke;
+}
+
+.header{
+    background-color:black;
+    color: white;
+    font-weight: bolder;
+}
+footer{
+    background-color: dodgerblue;
+}

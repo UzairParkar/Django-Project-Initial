@@ -1,0 +1,19 @@
+<!-- templates/details.html -->
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Person Details{% endblock %}
+
+{% block content %}
+<div class="card shadow-lg border-0">
+  <div class="card-header header bg-primary text white">
+    Details for {{ person.username }}
+  </div>
+  <div class="card-body ">
+    <p class="card-text"><strong>Email:</strong> {{ person.email }}</p>
+    <p class="card-text"><strong>Age:</strong> {{ person.age }}</p>
+    <p class="card-text"><strong>Created At:</strong> {{ person.createdat }}</p>
+    <p class="card-text"><strong>Updated At:</strong> {{ person.updtedat }}</p>
+  </div>
+</div>
+<a href="{% url 'home' %}" class="btn btn-secondary mt-3">Back to List</a>
+{% endblock %}
