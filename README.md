@@ -7,4 +7,5 @@ Table of Contents
 2. Django Templates
 3. Django Databases and Crud
 4. Django Admin Interface
+5. Django With Model Forms
 ```
