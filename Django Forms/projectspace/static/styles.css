@@ -1,0 +1,11 @@
+* {
+    margin: None;
+    padding: None;
+    box-sizing: border-box;
+}
+
+.styles textarea{
+    width: 100%;
+    height: 50px;
+}
+
