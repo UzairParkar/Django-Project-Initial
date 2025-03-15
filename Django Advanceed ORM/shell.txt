@@ -1,0 +1,122 @@
+# Creating Users
+>>> user = Users.objects.create(name='tester16',email='tester16@gmail.com',age=31)
+>>> user = Users.objects.create(name='tester17',email='tester17@gmail.com',age=32)
+
+# Relationship between Posts and a Users
+user = Users.objects.get(id=13)
+post = Posts.objects.create(Title='This is a Title',Content='This is a Description',user=user)
+
+
+#Updating the ages of the Users
+>>> user = Users.objects.get(id=19)
+>>> user.age = 41
+>>> user.save()
+
+>>> user = Users.objects.get(id=19)
+>>> user.age=20
+>>> user.save()
+
+# Deleting a user
+
+>>> user = Users.objects.get(id=15)
+>>> user.delete()
+(1, {'myapp.Users': 1})
+
+>>> user = Users.objects.get(id=16)
+>>> user.delete()
+(1, {'myapp.Users': 1})
+
+# Using filter queries
+active_users = Users.objects.filter(is_active=True) 
+>>> print(active_users)
+<QuerySet [<Users: tester3>, <Users: tester4>, <Users: tester5>,
+<Users: tester6>, <Users: tester7>, <Users: tester8>, <Users: tester9>, <Users: tester10>, 
+<Users: tester15>, <Users: tester16>, <Users: tester17>]>
+
+deactivated_users = Users.objects.filter(is_active=False)
+>>> print(deactivated_users)
+<QuerySet [<Users: tester1>, <Users: tester2>, <Users: tester11>, 
+<Users: tester12>, <Users: tester13>, <Users: tester14>]>
+
+
+# Advanced Filter queries
+>>> users_over_20 = Users.objects.filter(age__gt = 20)
+>>> print(users_over_20)
+<QuerySet [<Users: tester1>, <Users: tester2>, <Users: tester3>, <Users: tester4>, 
+<Users: tester5>, <Users: tester7>, <Users: tester8>, <Users: tester9>, <Users: tester10>, 
+<Users: tester11>, <Users: tester12>, <Users: tester14>, <Users: tester16>]>
+
+users_under_20 = Users.objects.filter(age__lt = 20) 
+>>> print(users_under_20)
+<QuerySet [<Users: tester13>]>
+
+
+recent = Posts.objects.filter(created_at__gte = timezone.now() - timedelta(days=5))
+>>> print(recent)
+
+>>> recent = Posts.objects.filter(created_at__gte = timezone.now() - timedelta(hours=1))
+>>> print(recent)
+
+# Using Q objects
+
+from django.db.models import Q
+
+>>> users = Users.objects.filter(Q(age__lt=30) | Q(age__gt=30))
+>>> print(users) 
+
+<QuerySet [<Users: tester1>, <Users: tester2>, <Users: tester3>, <Users: tester4>, 
+<Users: tester5>, <Users: tester6>, <Users: tester7>, <Users: tester8>, <Users: tester9>,
+<Users: tester10>, <Users: tester11>, <Users: tester12>, <Users: tester13>, <Users: tester14>,
+<Users: tester16>, <Users: tester17>]>
+
+
+>>> posts = Users.objects.filter(Q(is_active = False) | Q(age=21))
+>>> print(posts)
+<QuerySet [<Users: tester1>, <Users: tester2>, <Users: tester9>, <Users: tester11>, 
+<Users: tester12>, <Users: tester13>, <Users: tester14>]>
+
+user = Users.objects.filter(Q(name__icontains='tester1') | Q(created_at__gte = timezone.now() - timedelta(hours=2)))
+>>> print(user)
+<QuerySet [<Users: tester1>, <Users: tester10>, <Users: tester11>,
+ <Users: tester12>, <Users: tester13>, <Users: tester14>, <Users: tester15>, 
+ <Users: tester16>, <Users: tester17>]>
+
+
+#Using Aggregate, Count and Avg
+from django.db.models import Count, Avg, Sum
+>>> user = Users.objects.aggregate(Count('id'))
+>>> print(user)
+{'id__count': 17}
+
+>>> posts = Posts.objects.aggregate(Count('id'))
+>>> print(posts)
+{'id__count': 9}
+
+
+avg = Users.objects.aggregate(Avg('age'))
+>>> print(avg)
+{'age__avg': 30.125}
+
+
+#bulk creation
+
+users = [Users(name=f'tester{i}',email=f'tester{i}@gmail.com',age=f'{i}')for i in range(20,30)]
+>>> Users.objects.bulk_create(users)
+[<Users: tester20>, <Users: tester21>, <Users: tester22>, <Users: tester23>, <Users: tester24>,
+ <Users: tester25>, <Users: tester26>, <Users: tester27>, <Users: tester28>, <Users: tester29>]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

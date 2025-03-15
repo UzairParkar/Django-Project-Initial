@@ -8,4 +8,5 @@ Table of Contents
 3. Django Databases and Crud
 4. Django Admin Interface
 5. Django With Model Forms
+6. Django Advanced ORM Queries
 ```
