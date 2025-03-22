@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %} Dashboard {% endblock title %}
+
+
+{% block content %}
+<h1>Welcome to the Dashboard, {{ user.username }}</h1>
+{% if user.is_authenticated %}
+<a href="{% url 'logout' %}">Logout</a>
+{% endif %}
+<a href="{% url 'index' %}"> index</a>
+
+
+{% for key, value in user_attributes.items %}
+        <li><strong>{{ key }}:</strong> {{ value }}</li>
+    {% endfor %}
+    
+{% endblock content %}
+    
+    

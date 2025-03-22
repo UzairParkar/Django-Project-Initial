@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+    
+{% block content %}
+
+<form action="/register" method="post">
+    {% csrf_token %}
+    
+    {% for fields in form %}
+           {{fields.label_tag}}
+           {{fields}}
+           <br>
+    {{fields.errors}}
+    {% endfor %}
+    <button type="submit">Register</button>
+</form>   
+{% endblock content %}
+        

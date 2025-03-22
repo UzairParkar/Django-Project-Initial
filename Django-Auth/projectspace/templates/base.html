@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Base{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    {% block content %}
+    <a href="{% url 'register' %}">get registered</a>
+
+    <a href=" {% url 'login' %}">Login</a>
+
+    {% if user.is_authenticated %}
+        <h1>Authorised</h1> 
+        <a href="{% url 'dashboard' %}">Dashboard</a>
+    {% else %}
+        <h2>Anonymus</h2>
+    {% endif %}
+        
+    {% endblock content %}
+        
+
+    
+</body>
+</html>
