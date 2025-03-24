@@ -9,4 +9,6 @@ Table of Contents
 4. Django Admin Interface
 5. Django With Model Forms
 6. Django Advanced ORM Queries
+7. Django Auth
+8. Django File Handling
 ```

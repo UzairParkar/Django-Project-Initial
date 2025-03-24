@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Steps - {{ recipe.name }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4 text-center">Add Steps to {{ recipe.name }}</h1>
+    
+    <!-- Step Form -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <form method="post" class="needs-validation" novalidate>
+                {% csrf_token %}
+                {{ step_form.as_p }}
+                <button type="submit" class="btn btn-primary">Add Step</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- List of Steps -->
+    <h2 class="mb-4 text-center">Steps</h2>
+    <ul class="list-group shadow-sm">
+        {% for step in steps %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ step.desc }}
+        </li>
+        {% empty %}
+        <li class="list-group-item text-muted">No steps added yet.</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Back Link -->
+    <div class="text-center mt-4">
+        <a href="{% url 'create_recipe' %}" class="btn btn-secondary">Back to Recipes</a>
+    </div>
+</div>
+{% endblock %}

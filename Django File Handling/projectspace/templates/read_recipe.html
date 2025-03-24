@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ recipe.name }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4 text-center">{{ recipe.name }}</h1>
+    
+    <div class="card shadow-sm mb-4">
+        <div class="card-body text-center">
+            <!-- Recipe Image -->
+            {% if recipe.image %}
+            <img src="{{ recipe.image.url }}" alt="{{ recipe.name }}" class="img-fluid rounded mb-4" style="max-width: 300px; max-height: 300px;">
+            {% else %}
+            <p class="text-muted">No image available.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Ingredients -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h2 class="mb-3">Ingredients</h2>
+            <ul class="list-group">
+                {% for ingredient in ingredients %}
+                <li class="list-group-item">{{ ingredient.quantity }} - {{ ingredient.name }}</li>
+                {% empty %}
+                <li class="list-group-item text-muted">No ingredients added yet.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <!-- Steps -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h2 class="mb-3">Steps</h2>
+            <ol class="list-group list-group-numbered">
+                {% for step in steps %}
+                <li class="list-group-item">{{ step.desc }}</li>
+                {% empty %}
+                <li class="list-group-item text-muted">No steps added yet.</li>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+
+    <!-- Back Link -->
+    <div class="text-center">
+        <a href="{% url 'create_recipe' %}" class="btn btn-secondary">Back to Recipes</a>
+    </div>
+</div>
+{% endblock %}
