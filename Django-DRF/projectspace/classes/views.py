@@ -13,6 +13,10 @@ class ProductList(APIView):
         return Response(serializer.data)
     
     def post(self,request):
+        r = request.data.get('name') 
+        if not isinstance(r,str):
+            return Response({"message":"must be a string"},status=status.HTTP_400_BAD_REQUEST)
+        
         serializer = ProductSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
