@@ -1,3 +1,10 @@
+#--- changes made
+#---1. added django_extensions and rest_framework to installed apps [line 47-48]
+#---2. changed Time sone to Asia / Kolkata for better readability [line 115]
+#---3. added mytodo app to the installed apps [line 49]
+#---4. Added authentication basic classes auth line [136-143]
+
+
 """
 Django settings for myproject project.
 
@@ -20,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-fo6vpchms4cpbc4!tgr3(0fnr#lo#id(qf3c_%0zs5qq-0pfec'
+SECRET_KEY = 'django-insecure-lk#bez(dp1%ueb60g77^x(7z&1za&x(ae2#acw640kk$4o$&z0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,12 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'quickstart.apps.QuickstartConfig',
-    'classes.apps.ClassesConfig',
-    'viewsets.apps.ViewsetsConfig',
     'rest_framework',
     'django_extensions',
-    "django_filters"
+    'mytodo.apps.MytodoConfig'
 ]
 
 MIDDLEWARE = [
@@ -60,7 +64,7 @@ ROOT_URLCONF = 'myproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,9 +125,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'mytodo.CustomUser'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}
