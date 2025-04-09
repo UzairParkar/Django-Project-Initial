@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+{% load static %}
+
+
+{% block title %}Result{% endblock title %}
+    
+{% block content %}
+<div class="container py-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h4>Analysis Result</h4>
+        </div>
+        <div class="card-body">
+            <h5>Original Text:</h5>
+            <div class="p-3 bg-light border">{{ intext }}</div>
+
+            <h5 class="mt-4">Processed Text:</h5>
+            <div class="p-3 bg-light border">{{ output }}</div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+    

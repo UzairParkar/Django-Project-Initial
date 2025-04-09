@@ -1,0 +1,102 @@
+{% extends 'index.html' %}
+{% load static %}
+
+
+{% block title %} Task {% endblock title %}
+    
+{% block content %}
+<div class="container">
+    <form action="/analyze" method="get" class="p-4 border border-2 border-dark-subtle rounded-3 bg-light shadow-sm">
+        <div class="mb-3">
+            <label for="inputMessage" class="form-label fw-bold fs-5 d-block">
+                <span class="text-primary">Your</span>
+                <span clas  s="text-dark">Text</span>
+            </label>
+        </div>
+        <div class="mb-3">
+            <textarea 
+                id="inputMessage" 
+                class="form-control shadow-sm" 
+                rows="5"
+                placeholder="Enter Your Text Here..."
+                name="text"
+                
+            ></textarea>
+        </div>
+                <!-- First Row -->
+                <div class="mb-1">
+                    <input type="radio" name="action" id="rempunc" value="removepunc">
+                    <label for="rempunc" class="form-label fw-bold fs-5">
+                        <span class="text-primary">Remove</span>
+                        <span class="text-dark">Punctuations</span>
+                    </label>
+                    <input type="radio" name="action" id="capfirst" value="capfirst">
+                    <label for="capfirst" class="form-label fw-bold fs-5">
+                        <span class="text-primary">Capitalize</span>
+                        <span class="text-dark">First</span>
+                    </label>
+                    <input type="radio" name="action" id="remspaces" value="remspaces">
+                    <label for="remspaces" class="form-label fw-bold fs-5">
+                        <span class="text-primary">Remove</span>
+                        <span class="text-dark">Spaces</span>
+                    </label>
+                </div>
+        
+                <!-- Second Row -->
+                <div class="mb-1">
+                    <input type="radio" id="charactercount" name="action" value="charactercount"> 
+                    <label for="charactercount" class="form-label fw-bold fs-5">
+                        <span class="text-primary">Char</span>
+                        <span class="text-dark">Count</span>
+                    </label>
+                    <input type="radio" id="vowelcount" name="action" value="vowelcount">
+                    <label for="vowelcount" class="form-label fw-bold fs-5">
+                        <span class="text-primary">Vowels</span>
+                        <span class="text-dark">Count</span>
+                    </label>
+                    <input type="radio" id="touppercase" name="action" value="touppercase">
+                    <label for="touppercase" class="form-label fw-bold fs-5">
+                        <span class="text-primary">Upper</span>
+                        <span class="text-dark">Case</span>
+                    </label>
+                    <input type="radio" id="tolowercase" name="action" value="tolowercase">
+                    <label for="tolowercase" class="form-label fw-bold fs-5">
+                        <span class="text-primary">Lower</span>
+                        <span class="text-dark">Case</span>
+                    </label>
+                    <input type="radio" name="action" id="ispalindrome" value="ispalindrome">
+                    <label for="ispalindrome" class="form-label fw-bold fs-5">
+                        <span class="text-primary">Is</span>
+                        <span class="text-dark">Palindrome</span>
+                    </label>
+                </div>
+        
+                <!-- Third Row -->
+                <div class="mb-1">
+                    <input type="radio" id="reversetext" name="action" value="reversetext">
+                    <label for="reversetext" class="form-label fw-bold fs-5">
+                        <span class="text-primary">Reverse</span>
+                        <span class="text-dark">Text</span>
+                    </label>
+                    <input type="radio" name="action" id="addfullstop" value="addfullstop">
+                    <label for="addfullstop" class="form-label fw-bold fs-5">
+                        <span class="text-primary">Add</span>
+                        <span class="text-dark">Full Stop</span>
+                    </label>
+                    <input type="radio" id="isquestion" name="action" value="isquestion">
+                    <label for="isquestion" class="form-label fw-bold fs-5">
+                        <span class="text-primary">Is</span>
+                        <span class="text-dark">Question?</span>
+                    </label>
+                </div>
+        
+        </div>
+        <div class="text-end">
+            <button type="submit" class="btn btn-primary px-4 py-2 fw-bold">
+                <i class="bi bi-send-fill me-2"></i> Send Text
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock content %}
+    

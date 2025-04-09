@@ -1,0 +1,136 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %} Home {% endblock title %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/">
+                <span class="text-primary">Text</span>Utils
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold" href="{% url 'task' %}">Analyze</a>
+                    </li>
+                </ul>
+                <!-- <div class="d-flex">
+                    <a href="#" class="btn btn-outline-primary me-2">Login</a>
+                    <a href="#" class="btn btn-primary">Sign Up</a>
+                </div> -->
+            </div>
+        </div>
+    </nav>
+    {% block content %}
+    <header class="hero">
+        <div class="container">
+          <h1 class="display-4 fw-bold">Welcome to <span class="display-4 fw-bold text-primary">Text</span>Utils</h1>
+          <p class="text-left fs-3">Perform smart and fast operations on your text</p>
+        </div>
+      </header>
+      <hr>
+      <section class="section bg-white">
+        <div class="container fw-bold">
+          <h2 class=" display-5 fw-bold text-center">About TextUtils</h2>
+          <p class="mt-4 text-left">TextUtils is a lightweight yet powerful web app designed to help you manipulate and clean up your text with ease. Whether you're a writer, student, developer, or data analyst, TextTool helps streamline your workflow and make your content tidy and presentable.</p>
+          <p class="mt-4 text-left">Need to get rid of annoying punctuation? Want to make your text shout in uppercase? Or just want a quick word count? Textutils is here for all your quick-fix needs without the fluff.</p>
+          <p class="mt-4 text-left">This tool runs right in your browser — no downloads, no logins, no hassle. It's fast, private, and 100% free.</p>
+        </div>
+      </section>
+
+      <section class="features container text-center my-5">
+        <div class="row g-4">
+          <!-- Card 1 -->
+          <div class="col-md-4">
+            <div class="card h-100 shadow p-3">
+              <div class="card-body d-flex flex-column">
+                <h4 class="card-title mb-3"><span class="text-dark">Step</span>
+                    <span class="text-muted">1</span></h4>
+                    <p>Click on the analyze tab in the navbar and wait for the form to appear.</p>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Card 2 -->
+          <div class="col-md-4">
+            <div class="card h-100 shadow p-3">
+              <div class="card-body d-flex flex-column">
+                <h4 class="card-title mb-3"><span class="text-dark">Step</span>
+                    <span class="text-muted">2</span></h4>
+                    <p>choose the action you want to perform and then click on the button and wait for the results.</p>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Card 3 -->
+          <div class="col-md-4">
+            <div class="card h-100 shadow p-3">
+              <div class="card-body d-flex flex-column">
+                <h4 class="card-title mb-3"><span class="text-dark">Step</span>
+                    <span class="text-muted">3</span></h4>
+                    <p>Your Action has been performed and now you can copy it, paste it, store it and perform more actions on it.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="features container text-center my-5">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <i class="bi bi-type h1 text-primary mb-3"></i>
+                <h5 class="card-title">Text Transform</h5>
+                <p class="card-text">Change text to uppercase, lowercase, or title case instantly.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <i class="bi bi-slash-circle h1 text-danger mb-3"></i>
+                <h5 class="card-title">Remove Punctuation</h5>
+                <p class="card-text">Clean up messy text by eliminating all punctuation marks easily.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <i class="bi bi-card-checklist h1 text-success mb-3"></i>
+                <h5 class="card-title">Count & Analyze</h5>
+                <p class="card-text">Get character count, word count, and analyze your text quickly.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+    {% endblock content %}
+    <footer>
+            <hr class="my-4 bg-secondary">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-muted">© 2023 SimpleBrand. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-muted me-3">Privacy Policy</a>
+                    <a href="#" class="text-muted">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+  </body>
+</html>

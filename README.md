@@ -11,4 +11,7 @@ Table of Contents
 6. Django Advanced ORM Queries
 7. Django Auth
 8. Django File Handling
+9. DRF
+10. DRF Auth
+11. Advance Text Utils
 ```
