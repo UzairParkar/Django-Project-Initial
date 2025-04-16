@@ -14,4 +14,6 @@ Table of Contents
 9. DRF
 10. DRF Auth
 11. Advance Text Utils
+12. DRF PY-jwt Auth
+13. DRF token Auth
 ```
